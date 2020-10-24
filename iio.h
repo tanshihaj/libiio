@@ -72,10 +72,12 @@ typedef ptrdiff_t ssize_t;
 #endif
 
 #ifdef _WIN32
-#   ifdef LIBIIO_EXPORTS
-#	define __api __declspec(dllexport)
+#   ifdef LIBIIO_STATIC
+#       define __api
+#   elif LIBIIO_EXPORTS
+#	    define __api __declspec(dllexport)
 #   else
-#	define __api __declspec(dllimport)
+#	    define __api __declspec(dllimport)
 #   endif
 #elif __GNUC__ >= 4 && !defined(MATLAB_MEX_FILE) && !defined(MATLAB_LOADLIBRARY)
 #   define __api __attribute__((visibility ("default")))

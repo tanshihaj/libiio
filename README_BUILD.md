@@ -79,3 +79,6 @@ Note: Some things (specifically building doc)  need to find libiio or the bindin
 That means that you configure (with -DWITH_DOC=OFF), build, install, configure
 (with -DWITH_DOC=ON), build again to get the doc. If you have issues, please ask.
 
+## Link
+When linking statically builded version of library using Visual Studio compiler you should
+define LIBIIO_STATIC in all files that include iio.h
